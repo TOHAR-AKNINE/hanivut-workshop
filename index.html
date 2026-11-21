@@ -1,0 +1,394 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>הניווט לשיווק</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Assistant + the round font (Fredoka), embedded so they show the same everywhere */
+@font-face{font-family:"Assistant";font-weight:800;font-display:swap;src:url(media/fonts/assistant-hebrew-800.woff2) format("woff2");unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:"Assistant";font-weight:800;font-display:swap;src:url(media/fonts/assistant-latin-800.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Assistant";font-weight:700;font-display:swap;src:url(media/fonts/assistant-hebrew-700.woff2) format("woff2");unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:"Assistant";font-weight:700;font-display:swap;src:url(media/fonts/assistant-latin-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fredoka";font-weight:700;font-display:swap;src:url(media/fonts/fredoka-hebrew-700.woff2) format("woff2")}
+/* Layout: המסך הראשון = סרטון אווירה מהסדנה מתחת לשכבה שקופה (כמו אצל קורל).
+   אחריו טור אחד צר וממורכז, בנוי לטלפון קודם. הדגשה = כתב עגול עם קו יד מתחת, בלי רקע בורדו. */
+:root{
+  --bordeaux:#6B1E2E;
+  --bordeaux-deep:#3F101B;
+  --nude:#E3C2AC;
+  --nude-soft:#F3E6DC;
+  --cream:#FAF4EC;
+  --ink:#2A1A18;
+  --text:#4A3A36;
+  --font:"Assistant","Segoe UI",Arial,sans-serif;
+  --round:"Fredoka","Assistant",sans-serif;
+  /* hand-drawn underline strokes */
+  --stroke-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 50 3, 120 3, 197 7' fill='none' stroke='%23FAF4EC' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  --stroke-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 50 3, 120 3, 197 7' fill='none' stroke='%236B1E2E' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);font-weight:800;direction:rtl}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--nude);outline-offset:3px}
+
+/* emphasis: round font + a hand-drawn line under it */
+.mark{font-family:var(--round);font-weight:700;padding-bottom:.12em;background:var(--stroke-dark) no-repeat 50% 100%/100% .22em;color:var(--bordeaux)}
+.on-dark .mark,.hero .mark{background-image:var(--stroke-light);color:var(--cream)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;color:var(--cream);background:#2b211e;min-height:100svh;display:flex;align-items:center}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,10,.52) 0%,rgba(20,12,10,.5) 45%,rgba(40,14,20,.78) 100%)}
+.inner{position:relative;z-index:1;width:100%;max-width:800px;margin:0 auto;text-align:center;padding-block:calc(22px + env(safe-area-inset-top,0px)) 30px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.logo{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0 auto 16px}
+.logo img{width:clamp(58px,15vw,80px);height:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
+.logo span{font-weight:800;font-size:13px;letter-spacing:.3em;direction:ltr;color:var(--cream);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.brand{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));left:0;right:0;z-index:2;text-align:center;font-size:12px;letter-spacing:.32em;color:var(--cream);direction:ltr;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+h1{font-size:clamp(56px,16vw,112px);line-height:.98;letter-spacing:-.015em;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.sub{font-family:var(--round);font-weight:700;font-size:clamp(25px,6.8vw,38px);color:var(--cream);margin-top:8px;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+.route{display:flex;align-items:center;margin:14px auto 12px;max-width:200px}
+.route b{width:10px;height:10px;border-radius:50%;background:var(--nude);flex:none}
+.route span{flex:1;border-top:2px dashed rgba(227,194,172,.75);margin:0 6px}
+.route b.end{width:14px;height:14px;background:var(--cream);box-shadow:0 0 0 4px rgba(250,244,236,.22)}
+.big{font-size:clamp(30px,8.2vw,52px);line-height:1.22;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+.desc-wrap{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.desc{font-size:clamp(17px,4.5vw,21px);line-height:1.45;color:var(--nude-soft);margin:0 auto;max-width:46ch;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.desc strong{color:var(--cream)}
+.datebox{display:inline-flex;flex-direction:column;align-items:center;gap:2px;margin:16px auto 16px;padding:10px 24px;border:1.5px solid rgba(250,244,236,.5);border-radius:18px;background:rgba(20,12,10,.22);backdrop-filter:blur(4px);font-size:17px}
+.datebox b{font-size:24px;letter-spacing:.02em}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;max-width:440px;min-height:58px;margin:0 auto;background:var(--cream);color:var(--bordeaux);text-decoration:none;font-size:22px;border-radius:999px;padding:14px 24px;box-shadow:0 12px 28px rgba(0,0,0,.3)}
+.btn:hover{background:var(--nude-soft)}
+.btn.dark{background:var(--bordeaux);color:var(--cream);box-shadow:0 12px 28px rgba(74,19,32,.3)}
+
+/* ---------- sections ---------- */
+.sec{padding-block:72px}
+.tint{background:var(--nude-soft)}
+.col{max-width:640px;margin:0 auto;text-align:center;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.h2{font-size:clamp(32px,8.8vw,52px);line-height:1.18;color:var(--ink);margin:0 0 24px;text-wrap:balance}
+.p{font-size:clamp(19px,5vw,21px);line-height:1.6;color:var(--text);margin:0 0 16px}
+.p strong{color:var(--ink)}
+.lines{display:flex;flex-direction:column;gap:4px}
+.dots{display:flex;align-items:center;justify-content:center;max-width:220px;margin:0 auto 24px}
+.dots b{width:12px;height:12px;border-radius:50%;background:var(--bordeaux);flex:none}
+.dots span{flex:1;border-top:2px dashed var(--nude);margin:0 6px}
+
+.qs{display:flex;flex-direction:column;align-items:center;gap:10px;margin:6px 0 24px}
+.qs span{background:#fff;border:2px solid var(--nude);border-radius:22px 22px 22px 6px;padding:10px 18px;font-size:clamp(18px,4.8vw,20px);color:var(--ink);max-width:100%}
+.card-b{background:var(--bordeaux);color:var(--cream);border-radius:28px;padding:30px 24px;margin-top:28px}
+.card-b .t{font-size:clamp(23px,6.2vw,30px);line-height:1.35}
+.card-b .t .round{font-family:var(--round);font-weight:700}
+.card-b p+p{margin-top:12px}
+.card-b .lite{font-size:clamp(18px,4.8vw,20px);line-height:1.55;color:var(--nude-soft)}
+.card-b .lite strong{color:var(--cream)}
+
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px}
+.chips span{background:var(--cream);border:2px solid var(--bordeaux);color:var(--bordeaux);border-radius:999px;padding:7px 16px;font-size:17px}
+
+/* the six */
+.six{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 18px}
+.six .n{font-family:var(--round);font-weight:700;font-size:110px;line-height:.9;color:var(--bordeaux)}
+.six .seats{display:grid;grid-template-columns:repeat(3,22px);gap:8px}
+.six .seats i{width:22px;height:22px;border-radius:50%;background:var(--bordeaux);display:block}
+.six .seats i:nth-child(even){background:var(--nude)}
+.tag{display:inline-block;font-family:var(--round);font-weight:700;font-size:clamp(22px,6vw,28px);color:var(--bordeaux);margin:-10px 0 22px}
+.time{margin:28px 0 22px}
+.time .q{display:block;font-family:var(--round);font-weight:700;font-size:clamp(36px,10vw,56px);line-height:1.15;color:var(--bordeaux)}
+.time .q::after{content:"";display:block;height:.22em;width:70%;margin:.12em auto 0;background:var(--stroke-dark) no-repeat 50% 50%/100% 100%}
+.minimap{background:#fff;border:2px solid var(--nude);border-radius:26px;padding:20px 18px;margin-top:24px;text-align:right;box-shadow:0 14px 32px rgba(74,19,32,.08)}
+.minimap .hd{font-family:var(--round);font-weight:700;font-size:24px;color:var(--bordeaux);border-bottom:2px dashed var(--nude);padding-bottom:10px;margin-bottom:6px}
+.minimap ol{list-style:none;margin:0;padding:0;position:relative}
+.minimap ol::before{content:"";position:absolute;top:22px;bottom:22px;right:15px;border-right:3px dashed var(--nude)}
+.minimap li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;padding:10px 0;font-size:clamp(18px,4.8vw,20px);position:relative}
+.minimap li b{width:32px;height:32px;border-radius:50%;background:var(--bordeaux);color:var(--cream);display:grid;place-items:center;font-size:16px;box-shadow:0 0 0 5px #fff;z-index:1}
+.minimap li:last-child b{background:var(--cream);color:var(--bordeaux);border:3px solid var(--bordeaux)}
+
+/* journey + after: dark */
+.dark{background:var(--bordeaux-deep);color:var(--cream)}
+.dark .h2{color:var(--cream)}
+.dark .p{color:var(--nude-soft)}
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:6px 0 34px}
+.vid{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:9/16}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.play{position:absolute;inset:0;margin:auto;width:72px;height:72px;border-radius:50%;border:0;background:rgba(250,244,236,.92);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.play i{width:0;height:0;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent var(--bordeaux);margin-left:5px}
+.vid.on .play{display:none}
+.h3{font-size:clamp(26px,7vw,36px);color:var(--cream);margin:0 0 18px;text-wrap:balance}
+.boxes{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.box{border:1.5px solid rgba(227,194,172,.5);border-radius:22px;padding:18px 18px;text-align:center}
+.box .k{display:block;font-family:var(--round);font-weight:700;font-size:22px;color:var(--cream);margin-bottom:4px}
+.box p{margin:0;font-size:18px;line-height:1.5;color:var(--nude-soft)}
+
+/* who */
+.who{list-style:none;margin:0 0 18px;padding:0;text-align:right;display:flex;flex-direction:column;gap:12px}
+.who li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start;background:var(--cream);border:2px solid var(--nude);border-radius:20px;padding:14px 16px;font-size:clamp(18px,4.8vw,20px);line-height:1.5;color:var(--ink)}
+.who li::before{content:"✓";width:30px;height:30px;border-radius:50%;background:var(--bordeaux);color:var(--cream);display:grid;place-items:center;font-size:16px;margin-top:2px}
+.who-end{font-size:clamp(19px,5vw,22px);color:var(--bordeaux);line-height:1.5}
+
+/* about */
+.me{width:190px;height:190px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:6px solid var(--cream);box-shadow:0 0 0 2px var(--nude);display:block;margin:0 auto 22px}
+
+/* close */
+.close{background:var(--bordeaux);color:var(--cream)}
+.close .h2{color:var(--cream)}
+.close .p{color:var(--nude-soft)}
+.ticket{display:flex;flex-direction:column;align-items:center;gap:6px;border:2px dashed rgba(250,244,236,.55);border-radius:22px;padding:18px 16px;margin:24px 0 24px;font-size:18px}
+.ticket b{font-size:clamp(20px,5.4vw,24px)}
+.price{margin-top:8px;font-size:clamp(20px,5.4vw,24px)}
+.price .was{opacity:.8;font-size:.85em;margin-inline-start:6px}
+.price s{text-decoration-thickness:2px}
+.price .launch{font-family:var(--round);font-weight:700;color:var(--cream);background:rgba(250,244,236,.14);border-radius:999px;padding:2px 12px;margin-inline-end:6px;font-size:.8em}
+.todo{font-style:normal;color:var(--nude)}
+.linknote{margin:12px 0 0;font-size:16px}
+footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-size:13px;letter-spacing:.2em;padding-block:20px calc(84px + env(safe-area-inset-bottom,0px))}
+
+/* sticky join bar on phones, once the hero button is out of view */
+.joinbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bordeaux-deep);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));transform:translateY(110%);transition:transform .25s}
+.joinbar.show{transform:none}
+.joinbar .btn{max-width:none;min-height:50px;font-size:18px}
+@media (min-width:900px){.joinbar{display:none}footer{padding-block:20px}}
+@media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
+
+/* reading top-to-bottom: one phrase per line */
+.stack{display:flex;flex-direction:column;gap:2px;margin:0 auto 18px}
+.stack span{display:block}
+.h2 .ln{display:block}
+.band{position:relative;height:min(62vw,420px);overflow:hidden;background:var(--bordeaux-deep)}
+.band video{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(63,16,27,.25),rgba(63,16,27,.35))}
+/* everything bold and dark */
+:root{--text:#2A1A18}
+.p,.stack.p{font-weight:800;color:var(--ink)}
+.p.soft{color:var(--bordeaux)}
+.hero .desc{color:var(--cream);font-weight:800}
+.dark .p,.dark .stack.p,.close .p,.close .stack.p{color:var(--cream)}
+.card-b .lite{color:var(--cream)}
+.box p{color:var(--cream)}
+.desc-wrap .stack{margin:0 auto}
+
+/* ---- full atmosphere video: whole frame ---- */
+.hero video.full{display:none}
+@media (min-width:900px){
+  .hero video.bg{filter:blur(22px) saturate(.9);transform:scale(1.12)}
+  .hero video.full{display:block;position:absolute;z-index:1;top:0;bottom:0;left:4%;right:auto;height:100%;width:auto;aspect-ratio:9/16;object-fit:contain;inset-block:0}
+  .hero .inner{z-index:2;margin-right:max(4%,calc((100% - 1200px)/2));margin-left:auto;max-width:620px}
+}
+.hero::after{z-index:1}
+.hero .inner{z-index:2}
+@media (min-width:900px){.hero::after{background:linear-gradient(270deg,rgba(20,12,10,.72) 0%,rgba(20,12,10,.55) 50%,rgba(20,12,10,.15) 100%)}}
+
+/* ---- date / time / seats: the strongest box on the page ---- */
+.when{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:20px auto 18px;max-width:440px}
+.when .w{display:flex;align-items:center;gap:8px;background:var(--cream);color:var(--bordeaux);border-radius:16px;padding:10px 16px;box-shadow:0 10px 24px rgba(0,0,0,.28);flex:1 1 auto;justify-content:center}
+.when .w.wide{flex-basis:100%}
+.when b{font-size:clamp(20px,5.4vw,24px);letter-spacing:.01em}
+.when svg{width:24px;height:24px;flex:none;fill:none;stroke:var(--bordeaux);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.when.on-b .w{background:rgba(250,244,236,.1);color:var(--cream);border:1.5px solid rgba(250,244,236,.45);box-shadow:none}
+.when.on-b svg{stroke:var(--cream)}
+.ticket{border-style:solid}
+
+/* ---- motion ---- */
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.85)}70%{transform:scale(1.04)}100%{opacity:1;transform:none}}
+@keyframes glow{0%,100%{box-shadow:0 10px 24px rgba(0,0,0,.28),0 0 0 0 rgba(250,244,236,.55)}50%{box-shadow:0 10px 24px rgba(0,0,0,.28),0 0 0 8px rgba(250,244,236,0)}}
+@keyframes draw{from{background-size:0% .22em}to{background-size:100% .22em}}
+@keyframes march{to{background-position:-24px 0}}
+@keyframes shine{0%,70%{left:-60%}100%{left:130%}}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .logo{animation:up .7s .05s both}
+  .hero h1{animation:up .8s .15s both}
+  .hero .sub{animation:up .8s .3s both}
+  .hero .route{animation:up .8s .4s both}
+  .hero .big{animation:up .8s .5s both}
+  .hero .desc-wrap{animation:up .8s .65s both}
+  .hero .when .w{animation:pop .6s both,glow 2.6s 1.6s ease-in-out infinite}
+  .hero .when .w:nth-child(1){animation-delay:.8s,1.6s}
+  .hero .when .w:nth-child(2){animation-delay:.92s,1.8s}
+  .hero .when .w:nth-child(3){animation-delay:1.04s,2s}
+  .hero #heroBtn{animation:up .8s 1.15s both}
+  .mark{animation:draw 1s .6s both}
+  .route span{border-top:0;height:2px;background:repeating-linear-gradient(90deg,rgba(227,194,172,.85) 0 7px,transparent 7px 12px);animation:march 1.2s linear infinite}
+  .route b.end{animation:beat 1.8s ease-in-out infinite}
+  .btn{position:relative;overflow:hidden}
+  .btn::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 4.5s 2s ease-in-out infinite}
+  .reveal-on .rv{transition:opacity .8s ease,transform .8s ease}
+  .reveal-on .rv:not(.in){opacity:0;transform:translateY(26px)}
+  .six .seats i{animation:pop .5s both}
+  .six .seats i:nth-child(2){animation-delay:.1s}.six .seats i:nth-child(3){animation-delay:.2s}.six .seats i:nth-child(4){animation-delay:.3s}.six .seats i:nth-child(5){animation-delay:.4s}.six .seats i:nth-child(6){animation-delay:.5s}
+}
+@media (min-width:900px){.hero h1{font-size:88px}.hero .big{font-size:40px}.hero .desc{font-size:18px}.hero .inner{padding-block:24px}.hero .logo{margin-bottom:10px}.hero .when{margin:14px auto 14px}}
+
+
+</style>
+
+<header class="hero">
+  <video class="bg" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <video class="full" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="none" aria-hidden="true"></video>
+  <div class="inner">
+    <div class="logo"><img src="media/emblem-cream.png" alt=""><span>TOHAR AKNINE</span></div>
+    <h1>הניווט לשיווק</h1>
+    <p class="sub">המסלול למהלך השיווקי שלך.</p>
+    <div class="route" aria-hidden="true"><b></b><span></span><b class="end"></b></div>
+    <p class="big">מחר בבוקר כשתשבי לשווק כבר תדעי <span class="mark">מאיפה להתחיל</span></p>
+    <div class="desc-wrap">
+      <div class="stack desc"><span>סדנה אינטימית לבעלות עסקים שכבר משווקות</span><span>אבל עדיין מוצאות את עצמן מנחשות במה להתמקד.</span></div>
+      <div class="stack desc"><span>איך לשווק ואיך להביא את עצמן לידי ביטוי</span><span>בתוך עולמות השיווק והשכנוע.</span></div>
+      <div class="stack desc"><span>בחמש שעות נבנה יחד את המהלך השיווקי הבא של העסק שלך!</span><span>מה את רוצה לקדם? למי את מדברת ומה את עושה קודם.</span></div>
+    </div>
+    <div class="when"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi></b></div><div class="w wide"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
+    <a class="btn" id="heroBtn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a>
+  </div>
+</header>
+
+<main>
+  <!-- 1. ההזדהות -->
+  <section class="sec">
+    <div class="col">
+      <h2 class="h2"><span class="ln">את מנחשת מה לפרסם ולהעלות מחר.</span><span class="ln">איזה מהלך שיווקי נכון לעכשיו?</span><span class="mark">אבל מה את בעצם מנסה לקדם?</span></h2>
+      <div class="stack p"><span>את יושבת על העסק שלך כדי לשווק את השירות שלך.</span><span>יש לך אולי כבר רעיון לפרסום</span><span>סרטון מודעה או פוסט ששמרת</span><span>ואולי גם שירות שאת רוצה שיותר יכירו.</span></div>
+      <div class="stack p soft"><span>אבל אז מתחילות השאלות:</span></div>
+      <div class="qs">
+        <span>על מה לדבר הפעם?</span>
+        <span>למי אני בכלל מדברת?</span>
+        <span>ואם אעלה את זה מה אני רוצה שיקרה אחר כך?</span>
+      </div>
+      <div class="stack p"><span>ובסוף יכול לעבור שבוע שבו העלית</span><span>או עוד עובדת על זה</span><span>כתבת ועשית</span><span>ועדיין קשה לך להגיד לאן כל זה הולך.</span></div>
+      <div class="card-b">
+        <p class="t">בדיוק בשביל הרגע הזה בניתי את <span class="round">״הניווט לשיווק״</span></p>
+        <div class="stack lite"><span>כדי שתוכלי רגע להרים את הראש מכל מה שאת עושה</span><span>לראות מה קורה בעסק שלך עכשיו</span><span>ולבחור מהלך אחד ונכון</span><span>כדי למשוך אלייך לקוחות שמדויקים לך</span><span>ושאת יודעת איך ומאיפה להתחיל.</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 2. על מה נעבוד -->
+  <section class="sec tint">
+    <div class="col">
+      <div class="dots" aria-hidden="true"><b></b><span></span><b></b><span></span><b></b></div>
+      <h2 class="h2">על מה נעבוד <span class="mark">יחד?</span></h2>
+      <div class="stack p"><span>נחזור ליסודות של השיווק שלך</span><span>ונראה מה כבר עובד ומה צריך דיוק.</span></div>
+      <div class="stack p"><span>נסתכל על הזהות השיווקית שלך:</span><span>הסיפור, הערכים והחוזקות שאת מביאה לעסק</span><span>ונחבר אותם למה שהלקוחות שלך צריכים לשמוע</span><span>כדי להבין שהם צריכים דווקא אותך!</span></div>
+      <div class="stack p"><span>נדייק את הקהל שלך</span><span>נבנה לך שלושה מסרי ברזל</span><span>ונחבר את כל זה ליעד אחד</span><span>ולמהלך שיווקי ברור שמתאים לעסק שלך ועכשיו.</span></div>
+      <div class="chips" aria-hidden="true"><span>יסודות</span><span>זהות שיווקית</span><span>קהל</span><span>3 מסרי ברזל</span><span>יעד ומהלך</span></div>
+    </div>
+  </section>
+
+  <!-- 3. עד שש -->
+  <section class="sec">
+    <div class="col">
+      <div class="six" aria-hidden="true"><span class="n">6</span><span class="seats"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      <h2 class="h2">יש סיבה שאנחנו רק עד שש משתתפות</h2>
+      <p class="tag">קבוצה אינטימית 🤍</p>
+      <div class="stack p"><span>תביאי איתך את כל מה שמסתובב לך בראש על השיווק שלך.</span><span>יש לנו זמן לפתוח את זה יחד.</span></div>
+      <div class="stack p"><span>בכוונה בחרתי בקבוצה אינטימית של עד 6 משתתפות</span><span>כדי שבחמש השעות שלנו תקבלי את המעטפת המדויקת לך:</span></div>
+      <div class="chips"><span>מקום לשאלות שלך</span><span>משוב אישי</span><span>זמן לעבוד יחד על השיווק של העסק שלך</span></div>
+      <p class="time"><span class="q">חשוב לי הזמן איתך.</span></p>
+      <div class="stack p"><span>להקשיב לך</span><span>להבין איפה את נתקעת</span><span>ולעזור לך להחליט מה נכון לך לעשות עכשיו.</span></div>
+      <div class="stack p"><span>בסוף היום תוכלי לפתוח את המפה שנבנה בלייב יחד</span><span>ולראות מול העיניים:</span></div>
+      <div class="stack p strong"><span>זה מה שאני מקדמת</span><span>זה מה שאני רוצה להגיד</span><span>וזה מה שאני עושה כבר מחר בבוקר. 🤎</span></div>
+    </div>
+  </section>
+
+
+  <!-- 4. מסע מנטלי + ליווי -->
+  <section class="sec dark on-dark">
+    <div class="col">
+      <h2 class="h2"><span class="ln">את הולכת לעבור לא רק חוויה</span><span class="ln">גם <span class="mark">מסע מנטלי</span></span><span class="ln">שיעזור לך להתחבר למי שאת באמת</span><span class="ln">ולתת לקול שלך לצאת החוצה!!</span></h2>
+      <div class="vids">
+        <div class="vid"><video src="media/testimonial-1.mp4" poster="media/testimonial-1.jpg" preload="none" playsinline aria-label="משתתפת מהסדנה הקודמת"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div>
+        <div class="vid"><video src="media/testimonial-2.mp4" poster="media/testimonial-2.jpg" preload="none" playsinline aria-label="משתתפת מהסדנה הקודמת"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div>
+      </div>
+      <h3 class="h3">הסדנה לא נגמרת אחרי 5 השעות יחד</h3>
+      <div class="boxes">
+        <div class="box"><span class="k">קבוצת וואטסאפ</span><p>את מקבלת ליווי ומענה בקבוצת וואטסאפ ייעודית לסדנה.</p></div>
+        <div class="box"><span class="k">זום קבוצתי אחרי שבועיים</span><p>שם אנחנו בודקות את העשייה שלך ואת המשך הפעולות שלך.</p></div>
+      </div>
+      <div class="stack p"><span>נפתח שוב את המפה</span><span>ונראה מה זז, איפה נתקעת ומה כדאי לדייק.</span></div>
+    </div>
+  </section>
+
+  <!-- 5. למי זה מתאים -->
+  <section class="sec tint">
+    <div class="col">
+      <h2 class="h2">למי זה <span class="mark">מתאים?</span></h2>
+      <ul class="who">
+        <li><span>לבעלת עסק שכבר יש לה שירות ומשווקת.</span></li>
+        <li><span>לבעלת עסק שמכירה את העסק שלה ויודעת שיש לה מה לתת ומנסה לחבר את כל זה למהלך שיווקי אבל עדיין מתקשה ולא ברור לה מה לקדם, מה להגיד או איפה להשקיע את הזמן.</span></li>
+        <li><span>לבעלת עסק שמרגישה שהיא צריכה לדייק את הקול שלה בתוך השיווק.</span></li>
+        <li><span>לבעלת עסק שמבינה שהשיווק הוא הלב של העסק ורוצה לבנות סדר פעולות שיווקיות שיוציאו אותה החוצה בצורה שמתאימה לה ולעסק שלה.</span></li>
+      </ul>
+      <div class="stack who-end"><span>ואם יש לך תחושה שהכיוון שעבד לך פעם</span><span>כבר פחות מתאים לעסק שלך היום</span><span>זה בדיוק המקום.</span></div>
+    </div>
+  </section>
+
+
+  <!-- 6. נעים להכיר -->
+  <section class="sec">
+    <div class="col">
+      <img class="me" src="media/tohar-portrait.jpg" alt="טוהר אקנין">
+      <h2 class="h2">נעים להכיר <span class="mark">אני טוהר אקנין</span></h2>
+      <div class="stack p"><span>אני מלווה בעלות עסקים בתהליכי שיווק.</span><span>החלק שאני הכי אוהבת בעבודה שלי</span><span>הוא הרגע שבו אני רואה כמה השיווק הוא דרך התפתחות אחת גדולה.</span></div>
+      <div class="stack p"><span>את מספרת לי על העסק</span><span>על כל מה שאת עושה ועל מה שלא מסתדר לך</span><span>ופתאום אנחנו רואות מה מתוך כל זה באמת דורש תשומת לב עכשיו.</span></div>
+      <div class="stack p"><span>תהליך של התפתחות, גדילה וסדר פעולות אסטרטגיות</span><span>כדי לדייק אותך ולמשוך את הלקוחות המדויקים לך ולעסק.</span></div>
+      <div class="stack p strong"><span>את הרגע הזה רציתי להביא לסדנה.</span></div>
+      <div class="stack p"><span>שנוכל להסתכל יחד על העסק שלך</span><span>לעבור מסע גם מנטלי וגם פרקטי</span><span>ולאסוף את כל הדברים האלו למהלך</span><span>שאת מבינה למה בחרת בו ויודעת איך להתחיל.</span></div>
+    </div>
+  </section>
+
+  <!-- 7. סגירה והרשמה -->
+  <section class="sec close on-dark" id="register">
+    <div class="col">
+      <h2 class="h2">מה את רוצה שיקרה <span class="mark">בשיווק שלך עכשיו?</span></h2>
+      <div class="stack p"><span>תגיעי עם השאלה הזאת ועם כל מה שכבר ניסית.</span><span>ובחמש שעות נעשה בזה סדר</span><span>ונבנה את הדרך מהיעד שלך לצעד הראשון.</span></div>
+      <div class="ticket">
+        <div class="when on-b"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi> · <bdi>5 שעות</bdi></b></div><div class="w wide"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
+        <span class="price"><span class="launch">מחיר השקה</span><bdi>450 ₪</bdi> <span class="was">במקום <s><bdi>700 ₪</bdi></s></span></span>
+      </div>
+      <a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a>
+    </div>
+  </section>
+</main>
+<footer><div class="logo" style="margin:0 auto"><img src="media/emblem-cream.png" alt=""><span>TOHAR AKNINE</span><span style="letter-spacing:0;direction:rtl;font-size:15px">תהליכי שיווק</span></div></footer>
+
+<div class="joinbar" id="joinbar"><a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a></div>
+<script>
+/* hero: the two atmosphere clips play one after the other, in full */
+(function(){
+  var clips=["media/hero-vibe-full.mp4","media/work-bg.mp4"],i=0;
+  var vids=[].slice.call(document.querySelectorAll(".hero video"));
+  var lead=vids[0];
+  lead.addEventListener("ended",function(){
+    i=(i+1)%clips.length;
+    vids.forEach(function(v){
+      if(v!==lead&&getComputedStyle(v).display==="none")return;
+      v.src=clips[i];v.play().catch(function(){});
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById("heroBtn"), bar=document.getElementById("joinbar");
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){ bar.classList.toggle("show", !es[0].isIntersecting && es[0].boundingClientRect.top<0); }).observe(b);
+  }
+  /* gentle reveal while scrolling: content is visible by default, hidden only once this runs */
+  if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+    var items=document.querySelectorAll("main .h2, main .stack, main .qs, main .card-b, main .chips, main .time, main .six, main .vids, main .boxes, main .who li, main .me, main .ticket, main .btn");
+    items.forEach(function(el){ el.classList.add("rv"); });
+    document.documentElement.classList.add("reveal-on");
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); },{rootMargin:"0px 0px -8% 0px"});
+    items.forEach(function(el){ io.observe(el); });
+  }
+  document.querySelectorAll(".vid").forEach(function(box){
+    var v=box.querySelector("video"), btn=box.querySelector(".play");
+    btn.addEventListener("click",function(){
+      document.querySelectorAll(".vid video").forEach(function(o){ if(o!==v) o.pause(); });
+      v.controls=true; box.classList.add("on"); v.play();
+    });
+  });
+})();
+</script>
