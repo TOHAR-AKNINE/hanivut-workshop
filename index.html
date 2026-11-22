@@ -290,8 +290,8 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 </style>
 
 <header class="hero">
-  <video class="bg" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
-  <video class="full" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="none" aria-hidden="true"></video>
+  <video class="bg" src="media/hero-vibe-m.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <video class="full" src="media/hero-vibe-m.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="none" aria-hidden="true"></video>
   <div class="inner">
     <p class="pill"><i></i>סדנה פרונטלית · 6 מקומות בלבד</p>
     <p class="kick">הניווט לשיווק</p>
@@ -471,7 +471,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 <script>
 /* hero: the two atmosphere clips play one after the other, in full */
 (function(){
-  var clips=["media/hero-vibe-full.mp4","media/work-bg.mp4"],i=0;
+  var clips=["media/hero-vibe-m.mp4","media/work-bg-m.mp4"],i=0;
   var vids=[].slice.call(document.querySelectorAll(".hero video"));
   var lead=vids[0];
   lead.addEventListener("ended",function(){
@@ -510,3 +510,14 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   });
 })();
 </script>
+<script>
+/* phones: make sure the opening video plays (some phones need a nudge or a first touch) */
+(function(){
+  var vs=[].slice.call(document.querySelectorAll(".hero video"));
+  function go(){ vs.forEach(function(v){ if(getComputedStyle(v).display==="none") return; v.muted=true; v.setAttribute("muted",""); var p=v.play(); if(p&&p.catch) p.catch(function(){}); }); }
+  go(); addEventListener("load",go);
+  ["touchstart","scroll","click"].forEach(function(ev){ addEventListener(ev,function h(){ go(); removeEventListener(ev,h); },{passive:true}); });
+  document.addEventListener("visibilitychange",function(){ if(!document.hidden) go(); });
+})();
+</script>
+
