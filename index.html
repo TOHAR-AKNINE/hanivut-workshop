@@ -288,7 +288,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   <video class="bg" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
   <video class="full" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="none" aria-hidden="true"></video>
   <div class="inner">
-    <p class="pill"><i></i>סדנה פרונטלית · מחזור ראשון</p>
+    <p class="pill"><i></i>סדנה פרונטלית · 6 מקומות בלבד</p>
     <p class="kick">הניווט לשיווק</p>
     <div class="route" aria-hidden="true"><b></b><span></span><b class="end"></b></div>
     <h1 class="big">מחר בבוקר כשתשבי לשווק כבר תדעי <span class="mark">מאיפה להתחיל</span></h1>
@@ -299,7 +299,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
     <div class="key"><div class="k"><b>5</b><span>שעות של עבודה<br>על העסק שלך</span></div><div class="k"><b>6</b><span>משתתפות<br>בלבד</span></div></div>
     <div class="when slim"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg><b>פרונטלי · אזור ירושלים</b></div></div>
     <a class="btn" id="heroBtn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a>
-    <p class="cd-line" data-cd-line>מחיר השקה למחזור הראשון בלבד</p>
+    <p class="cd-line" data-cd-line>6 מקומות בלבד · מחיר השקה</p>
   </div>
 </header>
 
@@ -347,7 +347,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
       <div class="chips" aria-hidden="true"><span>יסודות</span><span>זהות שיווקית</span><span>קהל</span><span>3 מסרי ברזל</span><span>יעד ומהלך</span></div>
       <div class="offer" id="offer">
         <p class="once">הזדמנות של פעם אחת</p>
-        <div class="why"><span>מחזור ראשון</span><span>6 מקומות בלבד</span><span>מחיר השקה חד פעמי</span></div>
+        <div class="why"><span>6 מקומות בלבד</span><span>מחיר השקה חד פעמי</span></div>
         <p class="offer-t">מה מקבלות בסדנה</p>
         <ul class="incl">
           <li>5 שעות עבודה פרונטלית בקבוצה של עד 6 משתתפות</li>
@@ -461,7 +461,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
     if(ms<=0){ boxes.forEach(function(b){b.style.display="none";}); document.querySelectorAll(".cd-t").forEach(function(t){t.style.display="none";}); return; }
     var d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5), m=Math.floor(ms%36e5/6e4);
     boxes.forEach(function(b){ b.querySelector("[data-d]").textContent=d; b.querySelector("[data-h]").textContent=pad(h); b.querySelector("[data-m]").textContent=pad(m); });
-    if(line) line.innerHTML="עוד <b>"+d+" ימים</b> לסדנה · מחיר השקה למחזור הראשון בלבד";
+    if(line) line.innerHTML="עוד <b>"+d+" ימים</b> לסדנה · 6 מקומות בלבד";
   }
   tick(); setInterval(tick,30000);
 })();
