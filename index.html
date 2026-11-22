@@ -249,22 +249,57 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 .facts b{font-family:var(--round);font-weight:700;font-size:clamp(26px,7vw,34px);color:var(--bordeaux);line-height:1.1}
 .facts span{font-size:15px;color:#4A3A36}
 .jb-info{margin:0 0 6px;text-align:center;font-size:14px;color:var(--nude)}
+
+/* --- uniqueness / one-time opportunity --- */
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(250,244,236,.14);border:1.5px solid rgba(250,244,236,.6);color:var(--cream);border-radius:999px;padding:6px 16px;font-size:15px;margin:0 auto 10px;backdrop-filter:blur(4px)}
+.pill i{width:9px;height:9px;border-radius:50%;background:#F0B9A0;box-shadow:0 0 0 0 rgba(240,185,160,.8);animation:ping 1.6s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(240,185,160,.8)}80%,100%{box-shadow:0 0 0 10px rgba(240,185,160,0)}}
+.key{display:flex;gap:10px;justify-content:center;margin:18px auto 10px;max-width:440px}
+.key .k{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--bordeaux);border:2px solid var(--cream);border-radius:20px;padding:10px 12px;color:var(--cream);box-shadow:0 12px 26px rgba(0,0,0,.35)}
+.key b{font-family:var(--round);font-weight:700;font-size:clamp(44px,12vw,58px);line-height:1}
+.key span{font-size:clamp(15px,4.1vw,17px);line-height:1.2;text-align:right}
+.when.slim{margin:0 auto 16px;gap:8px}
+.when.slim .w{padding:8px 12px;flex:1 1 0;min-width:0}
+.when.slim b{font-size:clamp(15px,4.3vw,19px);white-space:nowrap}
+.when.slim svg{width:20px;height:20px}
+.cd-line{margin:10px 0 0;font-size:15px;color:var(--nude-soft);text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.cd-line b{color:var(--cream)}
+.once{font-family:var(--round);font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--bordeaux);background:var(--cream);display:inline-block;border-radius:999px;padding:4px 14px;margin:0 0 12px}
+.why{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 18px}
+.why span{border:1.5px solid rgba(250,244,236,.7);border-radius:999px;padding:4px 12px;font-size:15px}
+.cd-t{margin:12px 0 6px;font-size:15px;opacity:.9}
+.cd{display:flex;justify-content:center;gap:8px;margin:0 auto 16px;direction:rtl}
+.cd div{min-width:66px;background:rgba(250,244,236,.12);border:1.5px solid rgba(250,244,236,.5);border-radius:14px;padding:6px 4px;display:flex;flex-direction:column;align-items:center}
+.cd b{font-family:var(--round);font-weight:700;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cd span{font-size:13px;opacity:.85}
+.uniq{font-family:var(--round);font-weight:700;font-size:clamp(22px,6vw,28px);line-height:1.3;color:var(--cream);margin:0 0 18px}
+.proof .h2{margin-bottom:18px}
+@media (prefers-reduced-motion:no-preference){
+  .hero .pill{animation:up .7s .05s both}
+  .hero .key .k{animation:pop .6s both,glow 2.6s 1.6s ease-in-out infinite}
+  .hero .key .k:nth-child(2){animation-delay:.12s,1.8s}
+}
+@media (prefers-reduced-motion:reduce){.pill i{animation:none}}
+.f2f{text-decoration:none;background:var(--cream);color:var(--bordeaux);border-radius:8px;padding:0 .3em}
+.when.slim .w:last-child{flex-basis:100%}
 </style>
 
 <header class="hero">
   <video class="bg" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
   <video class="full" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="none" aria-hidden="true"></video>
   <div class="inner">
-    <div class="logo"><img src="media/emblem-cream.png" alt=""><span>TOHAR AKNINE</span></div>
+    <p class="pill"><i></i>סדנה פרונטלית · מחזור ראשון</p>
     <p class="kick">הניווט לשיווק</p>
     <div class="route" aria-hidden="true"><b></b><span></span><b class="end"></b></div>
     <h1 class="big">מחר בבוקר כשתשבי לשווק כבר תדעי <span class="mark">מאיפה להתחיל</span></h1>
     <div class="desc-wrap">
-      <div class="stack desc lead"><span>סדנה של 5 שעות לבעלות עסקים</span><span>שכבר משווקות ועדיין מנחשות מה לקדם.</span></div>
-      <div class="stack desc"><span>קבוצה אינטימית של עד 6 משתתפות.</span><span>מה את רוצה לקדם? למי את מדברת ומה את עושה קודם.</span></div>
+      <div class="stack desc lead"><span>סדנה <u class="f2f">פרונטלית</u> של 5 שעות</span><span>לבעלות עסקים שכבר משווקות</span><span>ועדיין מנחשות מה לקדם.</span></div>
+      <div class="stack desc"><span>מה את רוצה לקדם? למי את מדברת ומה את עושה קודם.</span></div>
     </div>
-    <div class="when"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg><b>אזור ירושלים</b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
+    <div class="key"><div class="k"><b>5</b><span>שעות של עבודה<br>על העסק שלך</span></div><div class="k"><b>6</b><span>משתתפות<br>בלבד</span></div></div>
+    <div class="when slim"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg><b>פרונטלי · אזור ירושלים</b></div></div>
     <a class="btn" id="heroBtn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a>
+    <p class="cd-line" data-cd-line>מחיר השקה למחזור הראשון בלבד</p>
   </div>
 </header>
 
@@ -289,6 +324,17 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   </section>
 
 
+  <!-- המלצות -->
+  <section class="sec dark on-dark proof">
+    <div class="col">
+      <h2 class="h2">משתתפות מהסדנה הקודמת <span class="mark">מספרות</span></h2>
+      <div class="vids">
+        <figure class="tm"><div class="vid"><video src="media/testimonial-1.mp4" poster="media/testimonial-1.jpg" preload="none" playsinline aria-label="בת שחר צברי, ליווי התפתחותי"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><q>אני יוצאת מכאן ויודעת מה אני הולכת לעשות</q><b>בת שחר צברי</b><span>ליווי התפתחותי</span></figcaption></figure>
+        <figure class="tm"><div class="vid"><video src="media/testimonial-2.mp4" poster="media/testimonial-2.jpg" preload="none" playsinline aria-label="הדר הומינר, חוגי אומנות וצילום"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><q>זה נתן לי ממש פוש לחזור ולהתקדם עם העסק</q><b>הדר הומינר</b><span>חוגי אומנות וצילום</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <!-- 2. על מה נעבוד -->
   <section class="sec tint">
     <div class="col">
@@ -300,6 +346,8 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
       <div class="stack p"><span>נדייק את הקהל שלך</span><span>נבנה לך שלושה מסרי ברזל</span><span>ונחבר את כל זה ליעד אחד</span><span>ולמהלך שיווקי ברור שמתאים לעסק שלך ועכשיו.</span></div>
       <div class="chips" aria-hidden="true"><span>יסודות</span><span>זהות שיווקית</span><span>קהל</span><span>3 מסרי ברזל</span><span>יעד ומהלך</span></div>
       <div class="offer" id="offer">
+        <p class="once">הזדמנות של פעם אחת</p>
+        <div class="why"><span>מחזור ראשון</span><span>6 מקומות בלבד</span><span>מחיר השקה חד פעמי</span></div>
         <p class="offer-t">מה מקבלות בסדנה</p>
         <ul class="incl">
           <li>5 שעות עבודה פרונטלית בקבוצה של עד 6 משתתפות</li>
@@ -308,7 +356,9 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
           <li>ליווי בקבוצת וואטסאפ אחרי הסדנה</li>
           <li>זום קבוצתי אחרי שבועיים</li>
         </ul>
-        <p class="offer-when"><bdi>1.12.2026</bdi> · <bdi>10:00</bdi> · אזור ירושלים</p>
+        <p class="offer-when"><bdi>1.12.2026</bdi> · <bdi>10:00</bdi> · פרונטלי באזור ירושלים</p>
+        <p class="cd-t">הסדנה מתחילה בעוד</p>
+        <div class="cd" data-cd aria-label="הזמן שנשאר עד הסדנה"><div><b data-d>--</b><span>ימים</span></div><div><b data-h>--</b><span>שעות</span></div><div><b data-m>--</b><span>דקות</span></div></div>
         <span class="price"><span class="launch">מחיר השקה</span><bdi>450 ₪</bdi> <span class="was">במקום <s><bdi>700 ₪</bdi></s></span></span>
         <a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה לשמור מקום</a>
       </div>
@@ -336,11 +386,6 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   <section class="sec dark on-dark">
     <div class="col">
       <h2 class="h2"><span class="ln">את הולכת לעבור לא רק חוויה</span><span class="ln">גם <span class="mark">מסע מנטלי</span></span><span class="ln">שיעזור לך להתחבר למי שאת באמת</span><span class="ln">ולתת לקול שלך לצאת החוצה!!</span></h2>
-      <p class="tag tag-light">משתתפות מהסדנה הקודמת מספרות</p>
-      <div class="vids">
-        <figure class="tm"><div class="vid"><video src="media/testimonial-1.mp4" poster="media/testimonial-1.jpg" preload="none" playsinline aria-label="בת שחר צברי, ליווי התפתחותי"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><q>אני יוצאת מכאן ויודעת מה אני הולכת לעשות</q><b>בת שחר צברי</b><span>ליווי התפתחותי</span></figcaption></figure>
-        <figure class="tm"><div class="vid"><video src="media/testimonial-2.mp4" poster="media/testimonial-2.jpg" preload="none" playsinline aria-label="הדר הומינר, חוגי אומנות וצילום"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><q>זה נתן לי ממש פוש לחזור ולהתקדם עם העסק</q><b>הדר הומינר</b><span>חוגי אומנות וצילום</span></figcaption></figure>
-      </div>
       <h3 class="h3">הסדנה לא נגמרת אחרי 5 השעות יחד</h3>
       <div class="boxes">
         <div class="box"><span class="k">קבוצת וואטסאפ</span><p>את מקבלת ליווי ומענה בקבוצת וואטסאפ ייעודית לסדנה.</p></div>
@@ -383,10 +428,13 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   <section class="sec close on-dark" id="register">
     <div class="col">
       <h2 class="h2">מה את רוצה שיקרה <span class="mark">בשיווק שלך עכשיו?</span></h2>
+      <p class="uniq">זו לא הרצאה.<br>אלה 5 שעות שבהן עובדים על העסק שלך.</p>
       <div class="stack p"><span>תגיעי עם השאלה הזאת ועם כל מה שכבר ניסית.</span><span>ובחמש שעות נעשה בזה סדר</span><span>ונבנה את הדרך מהיעד שלך לצעד הראשון.</span></div>
       <div class="ticket">
+        <p class="cd-t">הסדנה מתחילה בעוד</p>
+        <div class="cd" data-cd aria-label="הזמן שנשאר עד הסדנה"><div><b data-d>--</b><span>ימים</span></div><div><b data-h>--</b><span>שעות</span></div><div><b data-m>--</b><span>דקות</span></div></div>
         <div class="when on-b"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi> · <bdi>5 שעות</bdi></b></div><div class="w wide"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
-        <p class="offer-when">אזור ירושלים</p>
+        <p class="offer-when">פרונטלי באזור ירושלים</p>
         <ul class="incl">
           <li>5 שעות עבודה פרונטלית בקבוצה של עד 6 משתתפות</li>
           <li>מפה אישית שנבנית בלייב ובה 3 מסרי ברזל ומהלך ברור</li>
@@ -402,7 +450,22 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 </main>
 <footer><div class="logo" style="margin:0 auto"><img src="media/emblem-cream.png" alt=""><span>TOHAR AKNINE</span><span style="letter-spacing:0;direction:rtl;font-size:15px">תהליכי שיווק</span></div></footer>
 
-<div class="joinbar" id="joinbar"><p class="jb-info"><bdi>1.12</bdi> · עד 6 משתתפות · <bdi>450 ₪</bdi></p><a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a></div>
+<div class="joinbar" id="joinbar"><p class="jb-info">פרונטלי · <bdi>1.12</bdi> · 6 מקומות · <bdi>450 ₪</bdi></p><a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a></div>
+<script>
+/* countdown to the workshop: 1.12.2026 10:00 Israel time */
+(function(){
+  var T=Date.parse("2026-12-01T10:00:00+02:00");
+  function pad(n){return (n<10?"0":"")+n;}
+  function tick(){
+    var ms=T-Date.now(), boxes=document.querySelectorAll("[data-cd]"), line=document.querySelector("[data-cd-line]");
+    if(ms<=0){ boxes.forEach(function(b){b.style.display="none";}); document.querySelectorAll(".cd-t").forEach(function(t){t.style.display="none";}); return; }
+    var d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5), m=Math.floor(ms%36e5/6e4);
+    boxes.forEach(function(b){ b.querySelector("[data-d]").textContent=d; b.querySelector("[data-h]").textContent=pad(h); b.querySelector("[data-m]").textContent=pad(m); });
+    if(line) line.innerHTML="עוד <b>"+d+" ימים</b> לסדנה · מחיר השקה למחזור הראשון בלבד";
+  }
+  tick(); setInterval(tick,30000);
+})();
+</script>
 <script>
 /* hero: the two atmosphere clips play one after the other, in full */
 (function(){
@@ -430,7 +493,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   }
   /* gentle reveal while scrolling: content is visible by default, hidden only once this runs */
   if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
-    var items=document.querySelectorAll("main .h2, main .stack, main .qs, main .card-b, main .chips, main .time, main .six, main .vids, main .boxes, main .who li, main .me, main .ticket, main .btn, main .offer, main .facts");
+    var items=document.querySelectorAll("main .h2, main .stack, main .qs, main .card-b, main .chips, main .time, main .six, main .vids, main .boxes, main .who li, main .me, main .ticket, main .btn, main .offer, main .facts, main .uniq");
     items.forEach(function(el){ el.classList.add("rv"); });
     document.documentElement.classList.add("reveal-on");
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); },{rootMargin:"0px 0px -8% 0px"});
