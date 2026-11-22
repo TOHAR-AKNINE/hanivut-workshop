@@ -199,7 +199,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
 @media (prefers-reduced-motion:no-preference){
   .hero .logo{animation:up .7s .05s both}
-  .hero h1{animation:up .8s .15s both}
+  .hero .kick{animation:up .8s .15s both}
   .hero .sub{animation:up .8s .3s both}
   .hero .route{animation:up .8s .4s both}
   .hero .big{animation:up .8s .5s both}
@@ -219,7 +219,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   .six .seats i{animation:pop .5s both}
   .six .seats i:nth-child(2){animation-delay:.1s}.six .seats i:nth-child(3){animation-delay:.2s}.six .seats i:nth-child(4){animation-delay:.3s}.six .seats i:nth-child(5){animation-delay:.4s}.six .seats i:nth-child(6){animation-delay:.5s}
 }
-@media (min-width:900px){.hero h1{font-size:88px}.hero .big{font-size:40px}.hero .desc{font-size:18px}.hero .inner{padding-block:24px}.hero .logo{margin-bottom:10px}.hero .when{margin:14px auto 14px}}
+@media (min-width:900px){.hero .big{font-size:40px}.hero .desc{font-size:18px}.hero .inner{padding-block:24px}.hero .logo{margin-bottom:10px}.hero .when{margin:14px auto 14px}}
 
 
 
@@ -228,6 +228,27 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 .tm figcaption{margin-top:10px;display:flex;flex-direction:column;gap:2px;line-height:1.25}
 .tm figcaption b{font-family:var(--round);font-weight:700;font-size:18px;color:var(--cream)}
 .tm figcaption span{font-size:14px;color:var(--nude)}
+
+/* --- conversion fixes --- */
+.kick{font-family:var(--round);font-weight:700;font-size:clamp(24px,6.6vw,34px);color:var(--cream);letter-spacing:.01em;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.hero h1.big{font-size:clamp(34px,9.4vw,56px);line-height:1.15;letter-spacing:0;margin-top:6px}
+.hero .desc.lead{font-family:var(--round);font-weight:700;font-size:clamp(20px,5.4vw,25px);line-height:1.35}
+.offer{background:var(--bordeaux);color:var(--cream);border-radius:28px;padding:26px 22px 24px;margin-top:30px;box-shadow:0 18px 40px rgba(74,19,32,.22)}
+.offer-t{font-family:var(--round);font-weight:700;font-size:clamp(24px,6.4vw,30px);margin:0 0 12px}
+.incl{list-style:none;margin:0 auto 16px;padding:0;text-align:right;max-width:420px;display:flex;flex-direction:column;gap:8px}
+.incl li{position:relative;padding-inline-start:30px;font-size:clamp(16px,4.4vw,18px);line-height:1.45}
+.incl li::before{content:"";position:absolute;inset-inline-start:2px;top:.32em;width:18px;height:18px;border-radius:50%;background:var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%236B1E2E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.offer-when{font-size:clamp(18px,5vw,21px);margin:0 0 6px}
+.offer .price{display:block;margin:0 0 18px}
+.ticket .incl{margin-top:10px}
+.ticket .offer-when{margin:4px 0 0}
+.tag-light{color:var(--cream);margin:6px 0 16px}
+.tm figcaption q{display:block;font-size:15px;line-height:1.4;color:var(--cream);margin-bottom:6px;quotes:"\201D" "\201C"}
+.facts{display:flex;justify-content:center;gap:12px;margin:0 auto 22px;max-width:440px}
+.facts div{flex:1;background:var(--cream);border:2px solid var(--nude);border-radius:20px;padding:12px 10px;display:flex;flex-direction:column;gap:2px}
+.facts b{font-family:var(--round);font-weight:700;font-size:clamp(26px,7vw,34px);color:var(--bordeaux);line-height:1.1}
+.facts span{font-size:15px;color:#4A3A36}
+.jb-info{margin:0 0 6px;text-align:center;font-size:14px;color:var(--nude)}
 </style>
 
 <header class="hero">
@@ -235,16 +256,14 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   <video class="full" src="media/hero-vibe-full.mp4" poster="media/hero-vibe.jpg" autoplay muted playsinline preload="none" aria-hidden="true"></video>
   <div class="inner">
     <div class="logo"><img src="media/emblem-cream.png" alt=""><span>TOHAR AKNINE</span></div>
-    <h1>הניווט לשיווק</h1>
-    <p class="sub">המסלול למהלך השיווקי שלך.</p>
+    <p class="kick">הניווט לשיווק</p>
     <div class="route" aria-hidden="true"><b></b><span></span><b class="end"></b></div>
-    <p class="big">מחר בבוקר כשתשבי לשווק כבר תדעי <span class="mark">מאיפה להתחיל</span></p>
+    <h1 class="big">מחר בבוקר כשתשבי לשווק כבר תדעי <span class="mark">מאיפה להתחיל</span></h1>
     <div class="desc-wrap">
-      <div class="stack desc"><span>סדנה אינטימית לבעלות עסקים שכבר משווקות</span><span>אבל עדיין מוצאות את עצמן מנחשות במה להתמקד.</span></div>
-      <div class="stack desc"><span>איך לשווק ואיך להביא את עצמן לידי ביטוי</span><span>בתוך עולמות השיווק והשכנוע.</span></div>
-      <div class="stack desc"><span>בחמש שעות נבנה יחד את המהלך השיווקי הבא של העסק שלך!</span><span>מה את רוצה לקדם? למי את מדברת ומה את עושה קודם.</span></div>
+      <div class="stack desc lead"><span>סדנה של 5 שעות לבעלות עסקים</span><span>שכבר משווקות ועדיין מנחשות מה לקדם.</span></div>
+      <div class="stack desc"><span>קבוצה אינטימית של עד 6 משתתפות.</span><span>מה את רוצה לקדם? למי את מדברת ומה את עושה קודם.</span></div>
     </div>
-    <div class="when"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi></b></div><div class="w wide"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
+    <div class="when"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg><b>אזור ירושלים</b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
     <a class="btn" id="heroBtn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a>
   </div>
 </header>
@@ -275,10 +294,24 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
     <div class="col">
       <div class="dots" aria-hidden="true"><b></b><span></span><b></b><span></span><b></b></div>
       <h2 class="h2">על מה נעבוד <span class="mark">יחד?</span></h2>
+      <div class="stack p"><span>איך לשווק ואיך להביא את עצמך לידי ביטוי</span><span>בתוך עולמות השיווק והשכנוע.</span></div>
       <div class="stack p"><span>נחזור ליסודות של השיווק שלך</span><span>ונראה מה כבר עובד ומה צריך דיוק.</span></div>
       <div class="stack p"><span>נסתכל על הזהות השיווקית שלך:</span><span>הסיפור, הערכים והחוזקות שאת מביאה לעסק</span><span>ונחבר אותם למה שהלקוחות שלך צריכים לשמוע</span><span>כדי להבין שהם צריכים דווקא אותך!</span></div>
       <div class="stack p"><span>נדייק את הקהל שלך</span><span>נבנה לך שלושה מסרי ברזל</span><span>ונחבר את כל זה ליעד אחד</span><span>ולמהלך שיווקי ברור שמתאים לעסק שלך ועכשיו.</span></div>
       <div class="chips" aria-hidden="true"><span>יסודות</span><span>זהות שיווקית</span><span>קהל</span><span>3 מסרי ברזל</span><span>יעד ומהלך</span></div>
+      <div class="offer" id="offer">
+        <p class="offer-t">מה מקבלות בסדנה</p>
+        <ul class="incl">
+          <li>5 שעות עבודה פרונטלית בקבוצה של עד 6 משתתפות</li>
+          <li>מפה אישית שנבנית בלייב ובה 3 מסרי ברזל ומהלך ברור</li>
+          <li>משוב אישי וזמן לשאלות שלך</li>
+          <li>ליווי בקבוצת וואטסאפ אחרי הסדנה</li>
+          <li>זום קבוצתי אחרי שבועיים</li>
+        </ul>
+        <p class="offer-when"><bdi>1.12.2026</bdi> · <bdi>10:00</bdi> · אזור ירושלים</p>
+        <span class="price"><span class="launch">מחיר השקה</span><bdi>450 ₪</bdi> <span class="was">במקום <s><bdi>700 ₪</bdi></s></span></span>
+        <a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה לשמור מקום</a>
+      </div>
     </div>
   </section>
 
@@ -303,9 +336,10 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
   <section class="sec dark on-dark">
     <div class="col">
       <h2 class="h2"><span class="ln">את הולכת לעבור לא רק חוויה</span><span class="ln">גם <span class="mark">מסע מנטלי</span></span><span class="ln">שיעזור לך להתחבר למי שאת באמת</span><span class="ln">ולתת לקול שלך לצאת החוצה!!</span></h2>
+      <p class="tag tag-light">משתתפות מהסדנה הקודמת מספרות</p>
       <div class="vids">
-        <figure class="tm"><div class="vid"><video src="media/testimonial-1.mp4" poster="media/testimonial-1.jpg" preload="none" playsinline aria-label="בת שחר צברי, ליווי התפתחותי"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><b>בת שחר צברי</b><span>ליווי התפתחותי</span></figcaption></figure>
-        <figure class="tm"><div class="vid"><video src="media/testimonial-2.mp4" poster="media/testimonial-2.jpg" preload="none" playsinline aria-label="הדר הומינר, חוגי אומנות וצילום"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><b>הדר הומינר</b><span>חוגי אומנות וצילום</span></figcaption></figure>
+        <figure class="tm"><div class="vid"><video src="media/testimonial-1.mp4" poster="media/testimonial-1.jpg" preload="none" playsinline aria-label="בת שחר צברי, ליווי התפתחותי"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><q>אני יוצאת מכאן ויודעת מה אני הולכת לעשות</q><b>בת שחר צברי</b><span>ליווי התפתחותי</span></figcaption></figure>
+        <figure class="tm"><div class="vid"><video src="media/testimonial-2.mp4" poster="media/testimonial-2.jpg" preload="none" playsinline aria-label="הדר הומינר, חוגי אומנות וצילום"></video><button class="play" type="button" aria-label="ניגון"><i></i></button></div><figcaption><q>זה נתן לי ממש פוש לחזור ולהתקדם עם העסק</q><b>הדר הומינר</b><span>חוגי אומנות וצילום</span></figcaption></figure>
       </div>
       <h3 class="h3">הסדנה לא נגמרת אחרי 5 השעות יחד</h3>
       <div class="boxes">
@@ -336,6 +370,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
     <div class="col">
       <img class="me" src="media/tohar-portrait.jpg" alt="טוהר אקנין">
       <h2 class="h2">נעים להכיר <span class="mark">אני טוהר אקנין</span></h2>
+      <div class="facts"><div><b>3 שנים</b><span>בתחום השיווק</span></div><div><b>עשרות</b><span>בעלות עסקים שליוויתי</span></div></div>
       <div class="stack p"><span>אני מלווה בעלות עסקים בתהליכי שיווק.</span><span>החלק שאני הכי אוהבת בעבודה שלי</span><span>הוא הרגע שבו אני רואה כמה השיווק הוא דרך התפתחות אחת גדולה.</span></div>
       <div class="stack p"><span>את מספרת לי על העסק</span><span>על כל מה שאת עושה ועל מה שלא מסתדר לך</span><span>ופתאום אנחנו רואות מה מתוך כל זה באמת דורש תשומת לב עכשיו.</span></div>
       <div class="stack p"><span>תהליך של התפתחות, גדילה וסדר פעולות אסטרטגיות</span><span>כדי לדייק אותך ולמשוך את הלקוחות המדויקים לך ולעסק.</span></div>
@@ -351,6 +386,14 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
       <div class="stack p"><span>תגיעי עם השאלה הזאת ועם כל מה שכבר ניסית.</span><span>ובחמש שעות נעשה בזה סדר</span><span>ונבנה את הדרך מהיעד שלך לצעד הראשון.</span></div>
       <div class="ticket">
         <div class="when on-b"><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b><bdi>1.12.2026</bdi></b></div><div class="w"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b><bdi>10:00</bdi> · <bdi>5 שעות</bdi></b></div><div class="w wide"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5"/></svg><b>עד 6 משתתפות</b></div></div>
+        <p class="offer-when">אזור ירושלים</p>
+        <ul class="incl">
+          <li>5 שעות עבודה פרונטלית בקבוצה של עד 6 משתתפות</li>
+          <li>מפה אישית שנבנית בלייב ובה 3 מסרי ברזל ומהלך ברור</li>
+          <li>משוב אישי וזמן לשאלות שלך</li>
+          <li>ליווי בקבוצת וואטסאפ אחרי הסדנה</li>
+          <li>זום קבוצתי אחרי שבועיים</li>
+        </ul>
         <span class="price"><span class="launch">מחיר השקה</span><bdi>450 ₪</bdi> <span class="was">במקום <s><bdi>700 ₪</bdi></s></span></span>
       </div>
       <a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a>
@@ -359,7 +402,7 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 </main>
 <footer><div class="logo" style="margin:0 auto"><img src="media/emblem-cream.png" alt=""><span>TOHAR AKNINE</span><span style="letter-spacing:0;direction:rtl;font-size:15px">תהליכי שיווק</span></div></footer>
 
-<div class="joinbar" id="joinbar"><a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a></div>
+<div class="joinbar" id="joinbar"><p class="jb-info"><bdi>1.12</bdi> · עד 6 משתתפות · <bdi>450 ₪</bdi></p><a class="btn" href="https://wa.me/972547471300?text=%D7%94%D7%99%D7%99%20%D7%98%D7%95%D7%94%D7%A8%20%F0%9F%A4%8E%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%A1%D7%93%D7%A0%D7%AA%20%22%D7%94%D7%A0%D7%99%D7%95%D7%95%D7%98%20%D7%9C%D7%A9%D7%99%D7%95%D7%95%D7%A7%22%20%D7%91%D6%BE1.12" target="_blank" rel="noopener">אני רוצה להצטרף לסדנה</a></div>
 <script>
 /* hero: the two atmosphere clips play one after the other, in full */
 (function(){
@@ -379,11 +422,15 @@ footer{background:var(--bordeaux-deep);color:var(--nude);text-align:center;font-
 (function(){
   var b=document.getElementById("heroBtn"), bar=document.getElementById("joinbar");
   if("IntersectionObserver" in window){
-    new IntersectionObserver(function(es){ bar.classList.toggle("show", !es[0].isIntersecting && es[0].boundingClientRect.top<0); }).observe(b);
+    var heroGone=false, seen=new Set();
+    var upd=function(){ bar.classList.toggle("show", heroGone && seen.size===0); };
+    new IntersectionObserver(function(es){ heroGone=!es[0].isIntersecting && es[0].boundingClientRect.top<0; upd(); }).observe(b);
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) seen.add(e.target); else seen.delete(e.target); }); upd(); });
+    document.querySelectorAll("main .btn").forEach(function(x){ io.observe(x); });
   }
   /* gentle reveal while scrolling: content is visible by default, hidden only once this runs */
   if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
-    var items=document.querySelectorAll("main .h2, main .stack, main .qs, main .card-b, main .chips, main .time, main .six, main .vids, main .boxes, main .who li, main .me, main .ticket, main .btn");
+    var items=document.querySelectorAll("main .h2, main .stack, main .qs, main .card-b, main .chips, main .time, main .six, main .vids, main .boxes, main .who li, main .me, main .ticket, main .btn, main .offer, main .facts");
     items.forEach(function(el){ el.classList.add("rv"); });
     document.documentElement.classList.add("reveal-on");
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); },{rootMargin:"0px 0px -8% 0px"});
